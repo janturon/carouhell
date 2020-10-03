@@ -48,6 +48,13 @@ The list of supported buttons are:
  - **data-pause** Pauses animation
  - **data-play** Resumes animation paused by other buttons. If *data-autoplay* is not present, it defaults to 4000 (4s)
 
+This extension also provides handler functions:
+
+ - **ulElement.left()** Shifts the carousel leftwards, doesn't pause animation, if any
+ - **ulElement.right()** Same, but shifts rightwards
+ - **ulElement.play(T)** Plays animation with interval of `T` milliseconds. If `T` is null, take the data-autoplay attribute. If not found, set the interval to 4000 ms
+ - there is no `pause` function, but you can call **clearInterval(ulElement.t)** to pause the animation from client code
+
 ## Stripe extension
 
 `carouhell-stripe` extension uses `data-stripe` container attribute to identify the id of target block element in which is generated an empty `b` element for each `li` item in the container. "Active" `b` element (with position corresponding to displayed `li` item) is assigned with class `active`. It is up to you to create relevant css like in the example below:
