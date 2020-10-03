@@ -76,7 +76,7 @@ This extension also provides handler functions:
   <li><img src="img1.jpg">
   <li><a href="#"><img src="img2.jpg"></a>
 </ul>
-<div id="hellstripe"></div>
+<div id="hellStripe"></div>
 ```
 
 ## Your own extension
@@ -91,3 +91,4 @@ carouhell=function(u) {C(u)
 ```
 The `carouhell(u)` function will be called for every `ul` with carouhell class including those added later by AJAX. Your extension should be aware that the `li`s inside are subject to potential runtime change.
 
+Oh, and of course it needs to be vanilla javascript. Any "universal JS library" means only one thing: the author doesn't understand the language, so he needs to create "helper" to express his thoughts in JS. For this sin, he will GO TO HELL.
