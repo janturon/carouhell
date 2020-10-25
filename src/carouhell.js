@@ -1,16 +1,17 @@
-function carouhell(u,_,d) {
-  u.trans=parseFloat(getComputedStyle(u.children[0]).transitionDuration)*1e3
-  u.left = _=>{
-    if(u.children.length<2)return;
-    var li = u.children[0]
-    li.style.marginLeft=-li.offsetWidth+"px"
-    setTimeout(_=>{u.appendChild(li);li.style.marginLeft=0},u.trans)
-  }
-  if(_=u.dataset.autoplay) u.t=setInterval(u.left,_)
+;((d,e)=>{
+carouhell=(u,c,_)=>{c="children"
+	u.left=L=>{if(u[c].length<2)return;
+		(L=u[c][0]).style.marginLeft=-L.offsetWidth+"px"
+		setTimeout(x=>{u.appendChild(L);L.style.marginLeft=0},u.dataset.stay||4000)
+	}
+	if(_=u.dataset.stay)u.t=setInterval(u.left,_)
+	u[e]("mouseover",_=>clearInterval(u.t))
+	(function(){setTimeout(_=>eval(u.dataset.load))}).call(u)
 }
-(d=document).addEventListener("DOMContentLoaded",_=>{
+(d)[e]("DOMContentLoaded",_=>{
 Array.from(d.getElementsByClassName("carouhell")).forEach(carouhell)
-new MutationObserver(ms=>ms.forEach(m=>
-m.addedNodes.forEach(n=>{if((_=n.classList) && _.contains("carouhell"))carouhell(n)})
+new MutationObserver(M=>M.forEach(m=>
+m.addedNodes.forEach(n=>{if((_=n.classList)&&_.contains("carouhell"))carouhell(n)})
 )).observe(d.body,{subtree:1,childList:1})
-});
+})
+})(document,"addEventListener");
